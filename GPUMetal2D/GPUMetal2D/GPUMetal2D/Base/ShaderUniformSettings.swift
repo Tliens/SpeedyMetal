@@ -9,12 +9,17 @@
 import Foundation
 import Metal
 
+/// uniform 是我们需要控制的一系列参数，在shader执行的过程中，他是一个常量，不需要动态生成
+/// 比如我们处理效果时，需要传入的半径，力度，透明度等，都属于 uniform
+/// uniform 数据，同样是存放在 MTLBuffer 中，然后传递给 shader。
+/// 所以，不同于 OpenGL 中 uniform 通过 key 来索引，Metal 中则是按照 index 来标识
 public class ShaderUniformSettings {
+    /// ShaderUniformSettings 中维护的一个参数列表
     private var uniformValues: [Float] = []
     private var uniformValueOffsets: [Int] = []
     public var colorUniformsUseAlpha: Bool = false
     let shaderUniformSettingsQueue = DispatchQueue(
-        label: "com.colin.MetalImageProcessing.shaderUniformSettings",
+        label: "com.quinn.GPUMeatl2D.shaderUniformSettings",
         attributes: []
     )
     
@@ -25,7 +30,7 @@ public class ShaderUniformSettings {
             return uniformValueOffsets[index - 1]
         }
     }
-    
+    /// 通过 subscript，可以很方便的访问和修改对应下标处的参数值
     public subscript(index: Int) -> Float {
         get { return uniformValues[internalIndex(for:index)]}
         set(newValue) {

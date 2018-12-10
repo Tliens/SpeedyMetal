@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E438910721BE5C8400E94516 /* PictureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438910621BE5C8400E94516 /* PictureInput.swift */; };
+		E438910921BE5DA200E94516 /* RenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438910821BE5DA200E94516 /* RenderView.swift */; };
 		E45DBA7721B29BD700C6CD3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45DBA7621B29BD700C6CD3B /* AppDelegate.swift */; };
 		E45DBA7C21B29BD700C6CD3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45DBA7A21B29BD700C6CD3B /* Main.storyboard */; };
 		E45DBA7E21B29BD900C6CD3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E45DBA7D21B29BD900C6CD3B /* Assets.xcassets */; };
@@ -21,9 +23,14 @@
 		E45DBA9D21B2A99D00C6CD3B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45DBA9C21B2A99D00C6CD3B /* Color.swift */; };
 		E45DBA9F21B2AA4E00C6CD3B /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45DBA9E21B2AA4E00C6CD3B /* Position.swift */; };
 		E45DBAA121B2AA6100C6CD3B /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45DBAA021B2AA6100C6CD3B /* Matrix.swift */; };
+		E4C21F0921BE6DF20061700E /* PictureShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C21F0821BE6DF20061700E /* PictureShowViewController.swift */; };
+		E4C21F0B21BE6E150061700E /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E4C21F0A21BE6E150061700E /* 8.jpg */; };
+		E4C21F0D21BE73580061700E /* Passthrough.metal in Sources */ = {isa = PBXBuildFile; fileRef = E4C21F0C21BE73580061700E /* Passthrough.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E438910621BE5C8400E94516 /* PictureInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureInput.swift; sourceTree = "<group>"; };
+		E438910821BE5DA200E94516 /* RenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderView.swift; sourceTree = "<group>"; };
 		E45DBA7321B29BD700C6CD3B /* GPUMetal2D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUMetal2D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E45DBA7621B29BD700C6CD3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E45DBA7B21B29BD700C6CD3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -40,6 +47,10 @@
 		E45DBA9C21B2A99D00C6CD3B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		E45DBA9E21B2AA4E00C6CD3B /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		E45DBAA021B2AA6100C6CD3B /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		E4C21F0821BE6DF20061700E /* PictureShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureShowViewController.swift; sourceTree = "<group>"; };
+		E4C21F0A21BE6E150061700E /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
+		E4C21F0C21BE73580061700E /* Passthrough.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Passthrough.metal; sourceTree = "<group>"; };
+		E4C21F0E21BE73FA0061700E /* ShaderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderType.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +64,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E438910421BE49B100E94516 /* GPUMetal2D */ = {
+			isa = PBXGroup;
+			children = (
+				E45DBA8821B29C0300C6CD3B /* Base */,
+				E45DBA8B21B29C2900C6CD3B /* Operations */,
+				E45DBA8A21B29C1D00C6CD3B /* Outputs */,
+				E45DBA8921B29C1300C6CD3B /* Inputs */,
+			);
+			path = GPUMetal2D;
+			sourceTree = "<group>";
+		};
+		E458C07D21B91FD800DE9AF8 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				E45DBA7A21B29BD700C6CD3B /* Main.storyboard */,
+				E4C21F0821BE6DF20061700E /* PictureShowViewController.swift */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
 		E45DBA6A21B29BD700C6CD3B = {
 			isa = PBXGroup;
 			children = (
@@ -73,10 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				E45DBA8C21B29C4C00C6CD3B /* AppSupports */,
-				E45DBA8821B29C0300C6CD3B /* Base */,
-				E45DBA8B21B29C2900C6CD3B /* Operations */,
-				E45DBA8A21B29C1D00C6CD3B /* Outputs */,
-				E45DBA8921B29C1300C6CD3B /* Inputs */,
+				E458C07D21B91FD800DE9AF8 /* Demo */,
+				E438910421BE49B100E94516 /* GPUMetal2D */,
 			);
 			path = GPUMetal2D;
 			sourceTree = "<group>";
@@ -99,6 +128,7 @@
 		E45DBA8921B29C1300C6CD3B /* Inputs */ = {
 			isa = PBXGroup;
 			children = (
+				E438910621BE5C8400E94516 /* PictureInput.swift */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -106,6 +136,7 @@
 		E45DBA8A21B29C1D00C6CD3B /* Outputs */ = {
 			isa = PBXGroup;
 			children = (
+				E438910821BE5DA200E94516 /* RenderView.swift */,
 			);
 			path = Outputs;
 			sourceTree = "<group>";
@@ -113,6 +144,8 @@
 		E45DBA8B21B29C2900C6CD3B /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				E4C21F0E21BE73FA0061700E /* ShaderType.h */,
+				E4C21F0C21BE73580061700E /* Passthrough.metal */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -121,8 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				E45DBA7621B29BD700C6CD3B /* AppDelegate.swift */,
-				E45DBA7A21B29BD700C6CD3B /* Main.storyboard */,
 				E45DBA7D21B29BD900C6CD3B /* Assets.xcassets */,
+				E4C21F0A21BE6E150061700E /* 8.jpg */,
 				E45DBA7F21B29BD900C6CD3B /* LaunchScreen.storyboard */,
 				E45DBA8221B29BD900C6CD3B /* Info.plist */,
 			);
@@ -197,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4C21F0B21BE6E150061700E /* 8.jpg in Resources */,
 				E45DBA8121B29BD900C6CD3B /* LaunchScreen.storyboard in Resources */,
 				E45DBA7E21B29BD900C6CD3B /* Assets.xcassets in Resources */,
 				E45DBA7C21B29BD700C6CD3B /* Main.storyboard in Resources */,
@@ -211,15 +245,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				E45DBA9421B2A85000C6CD3B /* Constants.swift in Sources */,
+				E438910721BE5C8400E94516 /* PictureInput.swift in Sources */,
 				E45DBA9821B2A8EB00C6CD3B /* Rendering.swift in Sources */,
 				E45DBA7721B29BD700C6CD3B /* AppDelegate.swift in Sources */,
 				E45DBA9221B2A7BE00C6CD3B /* Context.swift in Sources */,
 				E45DBA9021B2A77200C6CD3B /* Texture.swift in Sources */,
+				E438910921BE5DA200E94516 /* RenderView.swift in Sources */,
 				E45DBAA121B2AA6100C6CD3B /* Matrix.swift in Sources */,
 				E45DBA8E21B2A39200C6CD3B /* Pipeline.swift in Sources */,
 				E45DBA9A21B2A90A00C6CD3B /* ShaderUniformSettings.swift in Sources */,
+				E4C21F0921BE6DF20061700E /* PictureShowViewController.swift in Sources */,
 				E45DBA9621B2A8AC00C6CD3B /* FillMode.swift in Sources */,
 				E45DBA9F21B2AA4E00C6CD3B /* Position.swift in Sources */,
+				E4C21F0D21BE73580061700E /* Passthrough.metal in Sources */,
 				E45DBA9D21B2A99D00C6CD3B /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
