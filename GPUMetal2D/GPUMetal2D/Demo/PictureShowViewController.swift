@@ -12,6 +12,7 @@ import UIKit
 class PictureShowViewController: UIViewController {
 
     var renderView:RenderView?
+    let picture = PictureInput(image:UIImage(named:"8.jpg")!)
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +24,7 @@ class PictureShowViewController: UIViewController {
         super.viewDidLayoutSubviews()
         renderView = RenderView.init(frame: view.bounds)
         view.addSubview(renderView!)
-        showImage_3()
+        showImage_4()
     }
     
     
@@ -33,7 +34,7 @@ class PictureShowViewController: UIViewController {
 extension PictureShowViewController{
     ///简单的图片显示
     func showImage_1(){
-        let picture = PictureInput(image:UIImage(named:"8.jpg")!)
+
         picture --> renderView!
         picture.processImage()
     }
@@ -43,7 +44,7 @@ extension PictureShowViewController{
         var brightnessFilter: BrightnessFilter!
         var abaoFilter: LookupFilter!
         
-        let picture = PictureInput(image:UIImage(named:"8.jpg")!)
+        
         
         saturationFilter = SaturationFilter.init()
         saturationFilter.saturation = 1.0
@@ -62,11 +63,23 @@ extension PictureShowViewController{
     /// 中心放大模糊
     func showImage_3(){
         var zoomBlur: ZoomBlur!
-        let picture = PictureInput(image:UIImage(named:"8.jpg")!)
+
         zoomBlur = ZoomBlur.init()
         zoomBlur.blurSize = 3.0
         
         picture --> zoomBlur --> renderView!
+        picture.processImage()
+    }
+    
+    ///blend
+    func showImage_4(){
+        var blenFilter:NormalBlendFilter!
+
+        blenFilter = NormalBlendFilter.init(blend: .normal)
+        blenFilter.overlayImage = PictureInput(image:UIImage(named:"blend_mode_source_overlay")!)
+        blenFilter.intensity = 1
+        
+        picture --> blenFilter --> renderView!
         picture.processImage()
     }
 }
