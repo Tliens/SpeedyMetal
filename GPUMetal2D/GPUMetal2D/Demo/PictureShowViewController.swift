@@ -23,7 +23,7 @@ class PictureShowViewController: UIViewController {
         super.viewDidLayoutSubviews()
         renderView = RenderView.init(frame: view.bounds)
         view.addSubview(renderView!)
-        showImage_2()
+        showImage_3()
     }
     
     
@@ -37,7 +37,7 @@ extension PictureShowViewController{
         picture --> renderView!
         picture.processImage()
     }
-    /// 实现滤镜链
+    /// 实现滤镜链 饱和度、明亮度、阿宝色
     func showImage_2(){
         var saturationFilter: SaturationFilter!
         var brightnessFilter: BrightnessFilter!
@@ -59,5 +59,14 @@ extension PictureShowViewController{
         picture.processImage()
     }
     
-    
+    /// 中心放大模糊
+    func showImage_3(){
+        var zoomBlur: ZoomBlur!
+        let picture = PictureInput(image:UIImage(named:"8.jpg")!)
+        zoomBlur = ZoomBlur.init()
+        zoomBlur.blurSize = 3.0
+        
+        picture --> zoomBlur --> renderView!
+        picture.processImage()
+    }
 }

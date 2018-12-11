@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E407F1E121BFC5AC0095365E /* ZoomBlur.metal in Sources */ = {isa = PBXBuildFile; fileRef = E407F1E021BFC5AC0095365E /* ZoomBlur.metal */; };
+		E407F1E321BFC5B40095365E /* ZoomBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407F1E221BFC5B40095365E /* ZoomBlur.swift */; };
 		E438910721BE5C8400E94516 /* PictureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438910621BE5C8400E94516 /* PictureInput.swift */; };
 		E438910921BE5DA200E94516 /* RenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438910821BE5DA200E94516 /* RenderView.swift */; };
 		E45DBA7721B29BD700C6CD3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45DBA7621B29BD700C6CD3B /* AppDelegate.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E407F1E021BFC5AC0095365E /* ZoomBlur.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ZoomBlur.metal; sourceTree = "<group>"; };
+		E407F1E221BFC5B40095365E /* ZoomBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomBlur.swift; sourceTree = "<group>"; };
 		E438910621BE5C8400E94516 /* PictureInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureInput.swift; sourceTree = "<group>"; };
 		E438910821BE5DA200E94516 /* RenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderView.swift; sourceTree = "<group>"; };
 		E45DBA7321B29BD700C6CD3B /* GPUMetal2D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUMetal2D.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +173,8 @@
 				E4D7EC2921BF85A300592E28 /* LookupFilter.swift */,
 				E4D7EC2D21BF85AB00592E28 /* SaturationFilter.metal */,
 				E4D7EC2C21BF85AB00592E28 /* SaturationFilter.swift */,
+				E407F1E021BFC5AC0095365E /* ZoomBlur.metal */,
+				E407F1E221BFC5B40095365E /* ZoomBlur.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -280,9 +286,11 @@
 				E45DBA9021B2A77200C6CD3B /* Texture.swift in Sources */,
 				E438910921BE5DA200E94516 /* RenderView.swift in Sources */,
 				E45DBAA121B2AA6100C6CD3B /* Matrix.swift in Sources */,
+				E407F1E321BFC5B40095365E /* ZoomBlur.swift in Sources */,
 				E45DBA8E21B2A39200C6CD3B /* Pipeline.swift in Sources */,
 				E45DBA9A21B2A90A00C6CD3B /* ShaderUniformSettings.swift in Sources */,
 				E4C21F0921BE6DF20061700E /* PictureShowViewController.swift in Sources */,
+				E407F1E121BFC5AC0095365E /* ZoomBlur.metal in Sources */,
 				E4D7EC2A21BF85A300592E28 /* LookupFilter.metal in Sources */,
 				E45DBA9621B2A8AC00C6CD3B /* FillMode.swift in Sources */,
 				E45DBA9F21B2AA4E00C6CD3B /* Position.swift in Sources */,
@@ -443,6 +451,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/GPUMetal2D/GPUMetal2D/Operations";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quinn.image.GPUMetal2D;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -461,6 +470,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/GPUMetal2D/GPUMetal2D/Operations";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quinn.image.GPUMetal2D;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
