@@ -19,6 +19,7 @@ extension MTLCommandBuffer {
         let vertexBuffer = sharedContext.device.makeBuffer(bytes: imageVertices,
                                                            length: imageVertices.count * MemoryLayout<Float>.size,
                                                            options: [])!
+        /// 渲染过程描述
         let renderPass = MTLRenderPassDescriptor()
         renderPass.colorAttachments[0].texture = outputTexture.texture
         renderPass.colorAttachments[0].clearColor = clearColor

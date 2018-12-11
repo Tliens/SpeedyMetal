@@ -10,7 +10,7 @@
 #include "ShaderType.h"
 using namespace metal;
 
-
+/// [[...]]语法用于声明属性，如资源位置，着色器输入以及在着色器和CPU之间来回传递的内置变量
 vertex SingleInputVertexIO oneInputVertex(device packed_float2 *position [[buffer(0)]],
                                           device packed_float2 *texturecoord [[buffer(1)]],
                                           uint vid [[vertex_id]])

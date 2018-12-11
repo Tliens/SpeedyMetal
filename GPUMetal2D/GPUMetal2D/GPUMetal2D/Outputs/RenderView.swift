@@ -22,7 +22,8 @@ public class RenderView: UIView {
     
     lazy var metalView: MTKView = {
         let metalView = MTKView.init(frame: self.bounds, device: sharedContext.device)
-        metalView.isPaused = true
+        metalView.isPaused = true //以首选帧率刷新  屏幕最大刷新率
+        //它会根据硬件功能以及您的游戏或应用可能正在执行的其他任务，以尽可能接近的速率通知目标。所选择的实际帧速率通常是屏幕的最大刷新率的一个因素，以提供一致的帧速率。例如，如果屏幕的最大刷新率是每秒60帧，那么这也是显示链接设置为实际帧速率的最高帧速率。但是，如果要求较低的帧速率，显示链接可能会选择每秒30帧，20帧或15帧或其他速率作为实际帧速率。选择您的应用可以始终如一地维护的帧速率。默认值为0.当此值为0时，首选帧速率等于显示的最大刷新率
         return metalView
     }()
     
@@ -42,6 +43,8 @@ public class RenderView: UIView {
         
     }
     private func commonInit() {
+        ///通过传入的 device，vertexFunctionName 以及 fragmentFunctionName，
+        /// 来生成所需的 MTLRenderPipelineState
         renderPipelineState = generateRenderPipelineState(vertexFunctionName: FunctionName.OneInputVertex,
                                                           fragmentFunctionName: FunctionName.PassthroughFragment)
         
@@ -65,6 +68,7 @@ extension RenderView: ImageConsumer {
 // MARK: MTKViewDelegate
 extension RenderView: MTKViewDelegate {
     
+    /// 绘制
     public func draw(in view: MTKView) {
         guard let currentDrawable = self.metalView.currentDrawable,
             let imageTexture = currentTexture else {
