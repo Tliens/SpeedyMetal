@@ -73,9 +73,9 @@ extension PictureShowViewController{
     
     ///blend
     func showImage_4(){
-        var blenFilter:NormalBlendFilter!
+        var blenFilter:BlendFilter!
 
-        blenFilter = NormalBlendFilter.init(blend: .normal)
+        blenFilter = BlendFilter.init(blend: .normal)
         blenFilter.overlayImage = PictureInput(image:UIImage(named:"blend_mode_source_overlay")!)
         blenFilter.intensity = 1
         

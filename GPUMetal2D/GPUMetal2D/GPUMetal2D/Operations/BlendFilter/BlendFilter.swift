@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class NormalBlendFilter: BasicOperation {
+public class BlendFilter: BasicOperation {
     public var intensity: Float = 1.0 {
         didSet {
             uniformSettings[0] = intensity
