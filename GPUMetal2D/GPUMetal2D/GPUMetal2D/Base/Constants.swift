@@ -21,6 +21,10 @@ public let standardImageVertices: [Float] = [-1.0, -1.0, 1.0, -1.0, -1.0, 1.0, 1
 /// 垂直图片顶点数据
 public let verticallyInvertedImageVertices: [Float] = [-1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, -1.0]
 
+/*
+ 3 4
+ 1 2
+ */
 /// 纹理坐标 左下角为坐标原点
 public let standardTextureCoordinates: [Float] = [0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0]
 

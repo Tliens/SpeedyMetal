@@ -13,6 +13,7 @@ class PictureShowViewController: UIViewController {
 
     var renderView:RenderView?
     let picture = PictureInput(image:UIImage(named:"8.jpg")!)
+    var timer : Timer?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +25,7 @@ class PictureShowViewController: UIViewController {
         super.viewDidLayoutSubviews()
         renderView = RenderView.init(frame: view.bounds)
         view.addSubview(renderView!)
-        showImage_4()
+        showImage_5()
     }
     
     
@@ -82,4 +83,31 @@ extension PictureShowViewController{
         picture --> blenFilter --> renderView!
         picture.processImage()
     }
+    
+    //分割滤镜
+    func showImage_5(){
+        
+        let splitFilter = LoopkUpSplitFilter()
+        
+        splitFilter.lookupImage1 = PictureInput(image:UIImage(named:"lut_abao.png")!)
+        splitFilter.lookupImage2 = PictureInput(image:UIImage(named:"ll.png")!)
+
+        picture --> splitFilter --> renderView!
+        
+        var progress:Float = 0
+        timer = Timer.init(timeInterval: 0.01, repeats: true, block: { [weak self](timer) in
+            if progress > 1 {
+                progress = 0
+            }else{
+                progress = progress + 0.01
+            }
+            print(progress)
+            splitFilter.progress = progress
+            self?.picture.processImage()
+        })
+        RunLoop.current.add(timer!, forMode: .common)
+        timer?.fire()
+
+    }
+
 }

@@ -25,4 +25,12 @@ struct TwoInputVertexIO
     float2 textureCoordinate2 [[user(texturecoord2)]];
 };
 
+struct ThreeInputVertexIO
+{
+    float4 position [[position]];
+    float2 textureCoordinate [[user(texturecoord)]];
+    float2 textureCoordinate2 [[user(texturecoord2)]];
+    float2 textureCoordinate3 [[user(texturecoord3)]];
+
+};
 #endif /* ShaderType_h */

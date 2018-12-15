@@ -21,7 +21,7 @@ fragment half4 normalBlend(TwoInputVertexIO fragmentInput [[stage_in]],
                                     ) {
     constexpr sampler quadSampler;
     half4 inputColor = inputTexture.sample(quadSampler, fragmentInput.textureCoordinate);
-    half4 overlayColor = overlayTexture.sample(quadSampler, fragmentInput.textureCoordinate);
+    half4 overlayColor = overlayTexture.sample(quadSampler, fragmentInput.textureCoordinate2);
     half4 blendColor = half4(normalBlend(float4(inputColor),float4(overlayColor)));
     half4 outputColor = half4(mix(inputColor, blendColor, half(uniform.intensity)));
     return outputColor;
