@@ -17,11 +17,13 @@ Base 里面，涉及到较多 Metal 相关的，可以细分为这么两类：
     ps:相比 GPUImage 2，目前少了 FillMode
     
 ###  辅助、工具类：
+
     MetalRenderingDevice、MetalRendering、ShaderUniformSettings、Pipeline
     
-    1.MetalRenderingDevice，以单例的形式，维护了 Metal 里面频繁要用到的对象，包括:
-        MTLDevice，MTLCommandQueue，MTLLibrary
+    1.MetalRenderingDevice，以单例的形式，维护了 Metal 里面频繁要用到的对象，包括: MTLDevice，MTLCommandQueue，MTLLibrary
+    
     2.Metal 里面某些对象的创建代价是比较大的，而且可以重复使用。所以这类的，就需要放在单例里面统一维护，避免不必要的性能开销。这类对象具体包括：
+    ```
         Command queues
         Data buffers
         Textures
@@ -31,18 +33,20 @@ Base 里面，涉及到较多 Metal 相关的，可以细分为这么两类：
         Render pipeline states
         Depth/stencil states
         
-        MetalRenderingDevice，有点像 OpenGL 里面的 Context。统一维护了 Metal 相关的环境
+        MetalRenderingDevice，
+      ``` 
+    有点像 OpenGL 里面的 Context。统一维护了 Metal 相关的环境
 
-    MetalRendering，顾名思义，是专门用来做渲染的。
-    ```swift
+### MetalRendering，顾名思义，是专门用来做渲染的。
+    ```
     func generateRenderPipelineState(device:MetalRenderingDevice, vertexFunctionName:String, fragmentFunctionName:String, operationName:String) -> MTLRenderPipelineState {
     // ....
     }
     
     extension MTLCommandBuffer {
-    func renderQuad(pipelineState:MTLRenderPipelineState, uniformSettings:ShaderUniformSettings? = nil, inputTextures:[UInt:Texture], useNormalizedTextureCoordinates:Bool = true, imageVertices:[Float] = standardImageVertices, outputTexture:Texture, outputOrientation:ImageOrientation = .portrait) {
+        func renderQuad(pipelineState:MTLRenderPipelineState, uniformSettings:ShaderUniformSettings? = nil, inputTextures:[UInt:Texture], useNormalizedTextureCoordinates:Bool = true, imageVertices:[Float] = standardImageVertices, outputTexture:Texture, outputOrientation:ImageOrientation = .portrait) {
     // ....
-    }
+        }
     }
     ```
     generateRenderPipelineState，通过传入的 device，vertexFunctionName 以及 fragmentFunctionName，来生成所需的 MTLRenderPipelineState。operationName 是辅助参数，调试查看的，和实际的渲染没有什么关系。
@@ -53,4 +57,5 @@ Base 里面，涉及到较多 Metal 相关的，可以细分为这么两类：
     
     
     ImageSource 表示该对象具有输出能力。它维护了一组 targets，即能接收对应输出的对象
+    
     ImageConsumer，表示该对象具有输入能力。它维护了一组 sources，即对应的输入源
